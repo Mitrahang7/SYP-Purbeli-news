@@ -1,0 +1,121 @@
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;                        /* space-y-4 */
+}
+ 
+/* ─── Error banner ─── */
+ 
+.auth-form__error {
+  padding: 0.75rem 1rem;
+  background-color: #fef2f2;        
+  border: 1px solid #fecaca;        
+  border-radius: 0.75rem;
+  color: #b91c1c;                   
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+ 
+/* ─── Input field wrapper ─── */
+ 
+.auth-form__field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+ 
+/* ─── Icon inside input ─── */
+ 
+.auth-form__icon {
+  position: absolute;
+  left: 0.75rem;                    /* left-3 */
+  color: #9ca3af;                   /* text-gray-400 */
+  pointer-events: none;
+  flex-shrink: 0;
+}
+ 
+/* ─── Input ─── */
+ 
+.auth-form__input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem; /* py-3 pr-4 pl-10 */
+  background-color: #f9fafb;        /* bg-gray-50 */
+  border: 1px solid #e5e7eb;        /* border-gray-200 */
+  border-radius: 0.75rem;           /* rounded-xl */
+  font-size: 0.875rem;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+ 
+.auth-form__input::placeholder {
+  color: #9ca3af;
+}
+ 
+.auth-form__input:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 2px #ef4444;    /* focus:ring-2 focus:ring-red-500 */
+  background-color: #ffffff;
+}
+ 
+/* ─── Submit button ─── */
+ 
+.auth-form__submit {
+  width: 100%;
+  padding: 1rem 0;                  /* py-4 */
+  margin-top: 0.5rem;
+  background-color: #b91c1c;        /* bg-red-700 */
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-weight: 900;                 /* font-black */
+  border: none;
+  border-radius: 0.75rem;           /* rounded-xl */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;                      /* gap-2 */
+  box-shadow: 0 4px 14px rgba(185, 28, 28, 0.25); /* shadow-red-700/20 */
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+ 
+.auth-form__submit:hover:not(:disabled) {
+  background-color: #991b1b;        /* hover:bg-red-800 */
+}
+ 
+.auth-form__submit:active:not(:disabled) {
+  transform: scale(0.98);
+}
+ 
+.auth-form__submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+ 
+/* ─── Arrow icon hover slide ─── */
+ 
+.auth-form__arrow {
+  transition: transform 0.2s ease;
+}
+ 
+.auth-form__submit:hover .auth-form__arrow {
+  transform: translateX(4px);       /* group-hover:translate-x-1 */
+}
+ 
+/* ─── Loading spinner ─── */
+ 
+.auth-form__spinner {
+  display: inline-block;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  border-radius: 9999px;
+  animation: auth-spin 0.65s linear infinite;
+}
+ 
+@keyframes auth-spin {
+  to { transform: rotate(360deg); }
+}

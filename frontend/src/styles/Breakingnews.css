@@ -1,0 +1,83 @@
+ 
+.breaking-news {
+  background-color: #f3f4f6;      /* bg-gray-100 */
+  border-bottom: 1px solid #e5e7eb; /* border-b border-gray-200 */
+  padding-top: 0.5rem;            /* py-2 */
+  padding-bottom: 0.5rem;
+  overflow: hidden;
+}
+ 
+/* =====================
+   BreakingNews – Inner container
+   ===================== */
+ 
+.breaking-news__inner {
+  max-width: 80rem;               /* max-w-7xl */
+  margin-left: auto;              /* mx-auto */
+  margin-right: auto;
+  padding-left: 1rem;             /* px-4 */
+  padding-right: 1rem;
+  display: flex;
+  align-items: center;            /* items-center */
+}
+ 
+/* =====================
+   BreakingNews – Badge
+   ===================== */
+ 
+.breaking-news__badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;                    /* gap-2 */
+  background-color: #b91c1c;      /* bg-red-700 */
+  color: #ffffff;                 /* text-white */
+  padding: 0.25rem 0.75rem;       /* px-3 py-1 */
+  border-radius: 0.25rem;         /* rounded */
+  font-size: 0.625rem;            /* text-[10px] */
+  font-weight: 900;               /* font-black */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;          /* tracking-widest */
+  z-index: 10;
+  margin-right: 1rem;             /* mr-4 */
+  white-space: nowrap;            /* whitespace-nowrap */
+  flex-shrink: 0;
+}
+ 
+/* =====================
+   BreakingNews – Ticker wrapper
+   ===================== */
+ 
+.breaking-news__ticker-wrapper {
+  position: relative;
+  flex: 1;                        /* flex-1 */
+  overflow: hidden;
+  height: 1.5rem;                 /* h-6 */
+}
+ 
+/* =====================
+   BreakingNews – Ticker (motion div)
+   ===================== */
+ 
+.breaking-news__ticker {
+  display: flex;
+  align-items: center;            /* items-center */
+  gap: 3rem;                      /* gap-12 */
+  white-space: nowrap;            /* whitespace-nowrap */
+  position: absolute;
+}
+ 
+/* =====================
+   BreakingNews – Ticker items
+   ===================== */
+ 
+.breaking-news__ticker-item {
+  font-size: 0.75rem;             /* text-xs */
+  font-weight: 700;               /* font-bold */
+  color: #374151;                 /* text-gray-700 */
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+ 
+.breaking-news__ticker-item:hover {
+  color: #b91c1c;                 /* hover:text-red-700 */
+}

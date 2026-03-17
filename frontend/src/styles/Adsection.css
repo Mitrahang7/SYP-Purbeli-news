@@ -1,0 +1,65 @@
+.ad-section {
+  width: 100%;
+  background-color: #f3f4f6;      
+  display: flex;
+  align-items: center;            
+  justify-content: center;        
+  border: 2px dashed #d1d5db;     
+  border-radius: 0.5rem;          
+  overflow: hidden;
+}
+ 
+/* =====================
+   AdSection – Type Variants
+   ===================== */
+ 
+.ad-section--banner {
+  height: 8rem;                   /* h-32 */
+}
+ 
+.ad-section--sidebar {
+  height: 16rem;                  
+}
+ 
+.ad-section--inline {
+  height: 6rem;                  
+}
+ 
+/* =====================
+   AdSection – Inner Content
+   ===================== */
+ 
+.ad-section__content {
+  text-align: center;             /* text-center */
+}
+ 
+.ad-section__label {
+  font-size: 0.625rem;            /* text-[10px] */
+  font-weight: 700;               /* font-bold */
+  color: #9ca3af;                 /* text-gray-400 */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;          /* tracking-widest */
+  margin-bottom: 0.25rem;         /* mb-1 */
+}
+ 
+.ad-section__tagline {
+  font-size: 0.75rem;             /* text-xs */
+  font-weight: 500;               /* font-medium */
+  color: #6b7280;                 /* text-gray-500 */
+}
+ 
+.ad-section__cta {
+  margin-top: 0.5rem;             /* mt-2 */
+  font-size: 0.625rem;            /* text-[10px] */
+  font-weight: 700;               /* font-bold */
+  color: #b91c1c;                 /* text-red-700 */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+}
+ 
+.ad-section__cta:hover {
+  text-decoration: underline;     /* hover:underline */
+}
