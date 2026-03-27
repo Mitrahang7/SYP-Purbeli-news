@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import { User, Lock, ArrowRight } from "lucide-react";
+import { loginUser } from "../services/auth";
+import { toast } from 'react-hot-toast';
 import "../styles/Login.css";
 
 export default function Login({ onSuccess }) {
@@ -17,15 +18,15 @@ export default function Login({ onSuccess }) {
     e.preventDefault();
     setLoading(true);
     setError("");
+
     try {
-      const res = await axios.post("http://26.4.110.75:8000/api/login/", formData);
-      localStorage.setItem("access_token", res.data.access);
-      localStorage.setItem("refresh_token", res.data.refresh);
-      if (onSuccess) onSuccess();
+      await loginUser(formData);
+      toast.success("Successfully logged in!");
+      if (onSuccess) onSuccess(); // 🔥 close modal + update app state
     } catch (err) {
       const msg = err.response?.data
         ? Object.values(err.response.data).flat().join(" ")
-        : "Cannot connect to server";
+        : "Login failed";
       setError(msg);
     } finally {
       setLoading(false);
@@ -34,10 +35,7 @@ export default function Login({ onSuccess }) {
 
   return (
     <form className="auth-form" onSubmit={handleSubmit}>
-
-      {error && (
-        <div className="auth-form__error">{error}</div>
-      )}
+      {error && <div className="auth-form__error">{error}</div>}
 
       <div className="auth-form__field">
         <User className="auth-form__icon" size={18} />
@@ -46,8 +44,8 @@ export default function Login({ onSuccess }) {
           type="text"
           name="username"
           placeholder="Username"
-          onChange={handleChange}
           value={formData.username}
+          onChange={handleChange}
           required
         />
       </div>
@@ -59,8 +57,8 @@ export default function Login({ onSuccess }) {
           type="password"
           name="password"
           placeholder="Password"
-          onChange={handleChange}
           value={formData.password}
+          onChange={handleChange}
           required
         />
       </div>
@@ -70,12 +68,10 @@ export default function Login({ onSuccess }) {
           <span className="auth-form__spinner" />
         ) : (
           <>
-            Sign In
-            <ArrowRight size={18} className="auth-form__arrow" />
+            Sign In <ArrowRight size={18} />
           </>
         )}
       </button>
-
     </form>
   );
 }

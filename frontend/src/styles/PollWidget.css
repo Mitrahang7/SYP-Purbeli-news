@@ -1,0 +1,141 @@
+.poll-widget {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e1e8f0;
+  margin-bottom: 2.5rem;
+}
+
+.poll-widget .widget-header {
+  padding: 1rem 1.25rem;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.poll-widget .header-icon {
+  color: #b91c1c;
+}
+
+.poll-widget .widget-header span {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #1e293b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.poll-card {
+  padding: 1.5rem;
+}
+
+.poll-question {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.poll-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+/* Before Voting */
+.poll-vote-btn {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: #ffffff;
+  border: 1.5px solid #f1f5f9;
+  border-radius: 10px;
+  text-align: left;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.poll-vote-btn:hover:not(:disabled) {
+  border-color: #b91c1c;
+  color: #b91c1c;
+  background: #fffafa;
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(185, 28, 28, 0.08);
+}
+
+.poll-vote-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* After Voting Results */
+.poll-option-container {
+  width: 100%;
+}
+
+.poll-result {
+  width: 100%;
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+.poll-result-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.option-text {
+  flex: 1;
+  padding-right: 1rem;
+}
+
+.option-percentage {
+  color: #b91c1c;
+  font-variant-numeric: tabular-nums;
+}
+
+.poll-progress-bg {
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.poll-progress-fill {
+  height: 100%;
+  background: #b91c1c;
+  border-radius: 999px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.poll-footer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.poll-footer span {
+  color: #10b981;
+}

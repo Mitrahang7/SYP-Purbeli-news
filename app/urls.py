@@ -6,6 +6,11 @@ router = DefaultRouter()
 router.register(r'tags', views.TagViewSet)
 router.register(r'categories', views.CategoryViewSet)
 router.register(r'posts', views.PostViewSet)
+router.register(r'polls', views.PollViewSet)
+router.register(r'promotions', views.PromotionViewSet)
+router.register(r'video-ads', views.VideoAdViewSet)
+router.register(r'newsletter', views.NewsletterViewSet)
+router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
     path('', include(router.urls)), # This includes all the routes for tags, categories, and posts
@@ -14,8 +19,7 @@ urlpatterns = [
     path('api/navigation/', views.NavigationDataView.as_view(), name='navigation-data'),
     path('posts/<int:post_id>/comments/', views.CommentViewSet.as_view()),
     
-    # You also need to add routes for these specific views you wrote:
-    path('posts/publish/', views.PostPublishViewSet.as_view()),
+    # Routes for specific views:
     path('posts/category/<int:category_id>/', views.PostListByCategoryViewSet.as_view()),
     path('posts/tag/<int:tag_id>/', views.PostListByTagViewSet.as_view()),
     path('drafts/', views.DraftListViewSet.as_view()),

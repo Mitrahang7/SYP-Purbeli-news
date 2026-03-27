@@ -1,0 +1,49 @@
+.district-filter {
+  background: white;
+  border-radius: 16px;
+  padding: 1.25rem;
+  border: 1px solid #f3f4f6;
+  margin-bottom: 1.5rem;
+}
+
+.district-filter__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.district-filter__header h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.district-filter__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.district-filter__item {
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: transparent;
+  font-size: 0.85rem;
+  color: #4b5563;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.district-filter__item:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.district-filter__item.active {
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
+}

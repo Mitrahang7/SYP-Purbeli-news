@@ -5,6 +5,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     city = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=20)
+    is_author = models.BooleanField(default=False, help_text="Can write news drafts from author dashboard")
 
     def __str__(self):
         return self.user.username
@@ -85,5 +86,40 @@ class Newsletter(TimeStampModel):
     def __str__(self):
         return self.email
         
+class Poll(TimeStampModel):
+    question = models.CharField(max_length=255)
+    active = models.BooleanField(default=True)
 
-    
+    def __str__(self):
+        return self.question
+
+class PollOption(models.Model):
+    poll = models.ForeignKey(Poll, related_name='options', on_delete=models.CASCADE)
+    text = models.CharField(max_length=100)
+    votes = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.poll.question} | {self.text}"
+        
+
+class Promotion(TimeStampModel):
+    title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=200, blank=True)
+    date = models.CharField(max_length=100)
+    location = models.CharField(max_length=200)
+    description = models.TextField()
+    image = models.ImageField(upload_to="promotions/%Y/%m/%d", blank=True, null=True)
+    color = models.CharField(max_length=7, default="#4f46e5")
+    type = models.CharField(max_length=50, default="Event")
+
+    def __str__(self):
+        return self.title
+
+class VideoAd(TimeStampModel):
+    title = models.CharField(max_length=200)
+    video_file = models.FileField(upload_to="video_ads/%Y/%m/%d", blank=True, null=True)
+    video_url = models.URLField(blank=True, null=True, help_text="Use this if you want to link an external video instead of uploading one.")
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title

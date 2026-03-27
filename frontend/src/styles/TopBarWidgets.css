@@ -1,0 +1,77 @@
+.top-bar-widgets-container {
+  width: 100%;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.top-bar-inner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.top-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.market-entry {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.bar-icon {
+  flex-shrink: 0;
+}
+
+.bar-icon.text-red { color: #b91c1c; }
+.bar-icon.text-blue { color: #3b82f6; }
+.bar-icon.text-green { color: #10b981; }
+
+.bar-text {
+  font-size: 0.8rem;
+}
+
+.bar-text.primary {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.bar-text.secondary {
+  font-weight: 500;
+  color: #64748b;
+}
+
+.bar-text.separator {
+  color: #cbd5e1;
+  margin: 0 0.25rem;
+}
+
+.top-bar-divider {
+  width: 1px;
+  height: 14px;
+  background: #cbd5e1;
+}
+
+@media (max-width: 768px) {
+  .top-bar-inner {
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .top-bar-divider {
+    display: none;
+  }
+  .group-market .separator, .group-market .market-entry:last-child {
+    display: none; /* Hide gold on mobile to save space */
+  }
+}

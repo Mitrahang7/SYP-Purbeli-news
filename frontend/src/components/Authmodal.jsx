@@ -5,7 +5,7 @@ import Login from './Login';
 import Signup from './Signup';
 import '../styles/Authmodal.css';
 
-export default function AuthModal({ isOpen, onClose }) {
+export default function AuthModal({ isOpen, onClose, onLoginSuccess, unskippable, customMessage }) {
   const [mode, setMode] = useState('login');
 
   if (!isOpen) return null;
@@ -19,7 +19,7 @@ export default function AuthModal({ isOpen, onClose }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          onClick={onClose}
+          onClick={unskippable ? undefined : onClose}
           className="auth-modal-backdrop"
         />
 
@@ -31,9 +31,11 @@ export default function AuthModal({ isOpen, onClose }) {
           className="auth-modal"
         >
           {/* Close button */}
-          <button onClick={onClose} className="auth-modal__close">
-            <X size={20} />
-          </button>
+          {!unskippable && (
+            <button onClick={onClose} className="auth-modal__close">
+              <X size={20} />
+            </button>
+          )}
 
           {/* Header */}
           <div className="auth-modal__header">
@@ -41,9 +43,11 @@ export default function AuthModal({ isOpen, onClose }) {
               PRUBELI<span className="auth-modal__logo-accent">AUTH</span>
             </h2>
             <p className="auth-modal__subtitle">
-              {mode === 'login'
-                ? 'Welcome back to Prubeli News'
-                : 'Join the Prubeli community today'}
+              {customMessage ? customMessage : (
+                mode === 'login'
+                  ? 'Welcome back to Prubeli News'
+                  : 'Join the Prubeli community today'
+              )}
             </p>
           </div>
 
@@ -66,8 +70,14 @@ export default function AuthModal({ isOpen, onClose }) {
           {/* Render existing Login or Signup component */}
           <div className="auth-modal__body">
             {mode === 'login'
-              ? <Login onSuccess={onClose} />
-              : <Signup onSuccess={() => setMode('login')} />
+              ? <Login onSuccess={() => {
+                  if (onLoginSuccess) onLoginSuccess();
+                  else onClose();
+                }} />
+              : <Signup onSuccess={() => {
+                  if (onLoginSuccess) onLoginSuccess();
+                  else onClose();
+                }} />
             }
           </div>
 

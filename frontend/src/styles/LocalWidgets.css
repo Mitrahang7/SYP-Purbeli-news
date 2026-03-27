@@ -1,0 +1,35 @@
+.local-widgets-compact {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+}
+
+.compact-widget-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.compact-widget-value {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.compact-widget-label {
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+.compact-widget-divider {
+  width: 1px;
+  height: 16px;
+  background: #cbd5e1;
+}
+
+.local-widgets-compact.skeleton {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-style: italic;
+}
